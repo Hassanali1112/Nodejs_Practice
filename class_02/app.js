@@ -9,7 +9,10 @@ app.get("/", (req, res) => {
   res.send("server is operational check console");
 });
 
-app.use('/users', usersRoutes )
+app.get('/users', usersRoutes)
+app.use('/users', (req, res)=>{
+  res.send("users not found")
+} )
 
 app.use((req, res, next)=>{
   req.user = "Hassan Ali"
